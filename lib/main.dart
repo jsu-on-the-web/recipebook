@@ -52,6 +52,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Widget buildRecipeCard(Recipe recipe) {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Image(image: AssetImage(recipe.imgUrl)),
+          Text(recipe.label),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -71,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
             // TODO: Make a nice RecipeCard widget for this
-            return Text(Recipe.samples[index].label);
+            return buildRecipeCard(Recipe.samples[index]);
           },
         )));
   }
