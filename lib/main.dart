@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipebook/recipe_detail_page.dart';
 import 'recipe.dart';
 
 void main() {
@@ -94,7 +95,20 @@ class _MyHomePageState extends State<MyHomePage> {
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
             // TODO: Make a nice RecipeCard widget for this
-            return buildRecipeCard(Recipe.samples[index]);
+            return GestureDetector(
+              // This lets the user tap
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return RecipeDetail(recipe: Recipe.samples[index]);
+                    },
+                  ),
+                );
+              },
+              child: buildRecipeCard(Recipe.samples[index]),
+            );
           },
         )));
   }
