@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'recipe.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,8 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -50,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -68,7 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
         ),
         body: SafeArea(
-          child: Container(),
-        ));
+            // Display the list of sample recipes
+            child: ListView.builder(
+          itemCount: Recipe.samples.length,
+          itemBuilder: (BuildContext context, int index) {
+            // TODO: Make a nice RecipeCard widget for this
+            return Text(Recipe.samples[index].label);
+          },
+        )));
   }
 }
