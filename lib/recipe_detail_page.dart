@@ -54,6 +54,13 @@ class _RecipeDetailState extends State<RecipeDetail> {
               ),
             ),
 
+            const Divider(
+              height: 4,
+              color: Colors.black,
+              endIndent: 14,
+              indent: 14,
+            ),
+
             // Display Ingredients
             Expanded(
               child: ListView.builder(
@@ -63,6 +70,10 @@ class _RecipeDetailState extends State<RecipeDetail> {
                   final ingredient = widget.recipe.ingredients[index];
                   return Text(
                     '${ingredient.quantity * _sliderVal} ${ingredient.measure} ${ingredient.name}',
+                    style: const TextStyle(
+                      fontSize: 15,
+                    ),
+                    textAlign: TextAlign.center,
                   );
                 },
               ),
