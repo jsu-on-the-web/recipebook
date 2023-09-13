@@ -64,7 +64,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
             // Display Ingredients
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.all(9.0),
+                padding: const EdgeInsetsDirectional.all(9.0),
                 itemCount: widget.recipe.ingredients.length,
                 itemBuilder: (BuildContext context, int index) {
                   final ingredient = widget.recipe.ingredients[index];
@@ -78,6 +78,33 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 },
               ),
             ),
+
+            const Divider(
+              height: 4,
+              color: Colors.black,
+              endIndent: 14,
+              indent: 14,
+            ),
+
+            // Display Steps
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(9.0),
+                itemCount: widget.recipe.method.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final step = widget.recipe.method[index];
+                  return Text(
+                    '${step.stepNumber}. ${step.step}',
+                    style: const TextStyle(
+                      fontSize: 15,
+                      leadingDistribution: TextLeadingDistribution.even,
+                    ),
+                    textAlign: TextAlign.center,
+                  );
+                },
+              ),
+            ),
+
             Slider(
                 min: 1,
                 max: 10,
