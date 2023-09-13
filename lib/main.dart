@@ -85,13 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          centerTitle: true,
-        ),
-        body: SafeArea(
-            // Display the list of sample recipes
-            child: ListView.builder(
+      appBar: AppBar(
+        title: Text(widget.title),
+        centerTitle: true,
+      ),
+      body: SafeArea(
+        // Display the list of sample recipes
+        child: ListView.builder(
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
             // TODO: Make a nice RecipeCard widget for this
@@ -110,6 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: buildRecipeCard(Recipe.samples[index]),
             );
           },
-        )));
+        ),
+      ),
+    );
   }
 }
