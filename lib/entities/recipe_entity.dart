@@ -1,8 +1,31 @@
 import 'package:realm/realm.dart';
-import 'package:recipebook/entities/ingredient.dart';
-import 'package:recipebook/entities/step.dart';
 
-part 'recipe.g.dart';
+part 'recipe_entity.g.dart';
+
+@RealmModel()
+class _Step {
+  @PrimaryKey()
+  late final int id;
+
+  @MapTo('step_number')
+  late int stepNumber;
+
+  @MapTo('step')
+  late String step;
+}
+
+@RealmModel()
+class _Ingredient {
+  @PrimaryKey()
+  late final int id;
+
+  @MapTo('quantity')
+  late double quantity;
+  @MapTo('measure')
+  late String measure;
+  @MapTo('name')
+  late String name;
+}
 
 @RealmModel()
 class _RecipeEntity {
@@ -19,8 +42,8 @@ class _RecipeEntity {
   late int servings;
 
   @MapTo('ingredients')
-  late List<Ingredient> ingredients;
+  late List<_Ingredient> ingredients;
 
   @MapTo('method')
-  late List<Step> method;
+  late List<_Step> method;
 }
