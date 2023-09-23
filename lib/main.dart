@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recipebook/recipe_detail_page.dart';
-import 'package:realm/realm.dart';
 import 'recipe.dart';
 
 void main() {

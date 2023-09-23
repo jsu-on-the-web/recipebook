@@ -13,7 +13,7 @@ class Step extends _Step with RealmEntity, RealmObjectBase, RealmObject {
     String step,
   ) {
     RealmObjectBase.set(this, 'id', id);
-    RealmObjectBase.set(this, 'stepNumber', stepNumber);
+    RealmObjectBase.set(this, 'step_number', stepNumber);
     RealmObjectBase.set(this, 'step', step);
   }
 
@@ -25,9 +25,9 @@ class Step extends _Step with RealmEntity, RealmObjectBase, RealmObject {
   set id(int value) => throw RealmUnsupportedSetError();
 
   @override
-  int get stepNumber => RealmObjectBase.get<int>(this, 'stepNumber') as int;
+  int get stepNumber => RealmObjectBase.get<int>(this, 'step_number') as int;
   @override
-  set stepNumber(int value) => RealmObjectBase.set(this, 'stepNumber', value);
+  set stepNumber(int value) => RealmObjectBase.set(this, 'step_number', value);
 
   @override
   String get step => RealmObjectBase.get<String>(this, 'step') as String;
@@ -47,7 +47,7 @@ class Step extends _Step with RealmEntity, RealmObjectBase, RealmObject {
     RealmObjectBase.registerFactory(Step._);
     return const SchemaObject(ObjectType.realmObject, Step, 'Step', [
       SchemaProperty('id', RealmPropertyType.int, primaryKey: true),
-      SchemaProperty('stepNumber', RealmPropertyType.int),
+      SchemaProperty('stepNumber', RealmPropertyType.int, mapTo: 'step_number'),
       SchemaProperty('step', RealmPropertyType.string),
     ]);
   }
