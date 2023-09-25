@@ -5,8 +5,6 @@ part 'recipe_entity.g.dart';
 @RealmModel()
 class _Step {
   @PrimaryKey()
-  late final int id;
-
   @MapTo('step_number')
   late int stepNumber;
 
@@ -28,6 +26,7 @@ class _Ingredient {
 }
 
 @RealmModel()
+@MapTo("Recipe")
 class _RecipeEntity {
   @PrimaryKey()
   late final int id;

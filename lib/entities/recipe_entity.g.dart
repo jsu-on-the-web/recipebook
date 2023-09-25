@@ -179,8 +179,7 @@ class RecipeEntity extends _RecipeEntity
   static SchemaObject? _schema;
   static SchemaObject _initSchema() {
     RealmObjectBase.registerFactory(RecipeEntity._);
-    return const SchemaObject(
-        ObjectType.realmObject, RecipeEntity, 'RecipeEntity', [
+    return const SchemaObject(ObjectType.realmObject, RecipeEntity, 'Recipe', [
       SchemaProperty('id', RealmPropertyType.int, primaryKey: true),
       SchemaProperty('label', RealmPropertyType.string),
       SchemaProperty('imgUrl', RealmPropertyType.string, mapTo: 'image'),
