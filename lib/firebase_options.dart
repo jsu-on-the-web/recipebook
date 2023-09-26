@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -58,23 +64,5 @@ class DefaultFirebaseOptions {
     messagingSenderId: '986362965075',
     projectId: 'recipebook-app-jsu-01',
     storageBucket: 'recipebook-app-jsu-01.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCLq97MCuKv7QYtBbVY6BKATDQKi-GbNBg',
-    appId: '1:986362965075:ios:9a297538da955b5e9ceaa6',
-    messagingSenderId: '986362965075',
-    projectId: 'recipebook-app-jsu-01',
-    storageBucket: 'recipebook-app-jsu-01.appspot.com',
-    iosBundleId: 'com.example.recipebook',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCLq97MCuKv7QYtBbVY6BKATDQKi-GbNBg',
-    appId: '1:986362965075:ios:3d3851f1d366ed4a9ceaa6',
-    messagingSenderId: '986362965075',
-    projectId: 'recipebook-app-jsu-01',
-    storageBucket: 'recipebook-app-jsu-01.appspot.com',
-    iosBundleId: 'com.example.recipebook.RunnerTests',
   );
 }
