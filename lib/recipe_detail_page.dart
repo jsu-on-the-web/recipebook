@@ -18,7 +18,7 @@ class RecipeDetail extends StatefulWidget {
   @override
   _RecipeDetailState createState() {
     // For serving sizes
-    int _sliderVal = 1;
+    int sliderVal = 1;
 
     return _RecipeDetailState();
   }

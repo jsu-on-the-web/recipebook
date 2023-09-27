@@ -1,3 +1,6 @@
+import 'package:json_annotation/json_annotation.dart';
+import 'package:json_serializable/json_serializable.dart';
+
 class Recipe {
   /* -------------------------------------------------------------------------- */
   /*                                 Properties                                 */
@@ -108,6 +111,7 @@ class Recipe {
   ];
 }
 
+@JsonSerializable(includeIfNull: true)
 class Ingredient {
   /* -------------------------------------------------------------------------- */
   /*                                 Properties                                 */
@@ -122,6 +126,7 @@ class Ingredient {
   Ingredient(this.quantity, this.measure, this.name);
 }
 
+@JsonSerializable(includeIfNull: false)
 class Step {
   /* -------------------------------------------------------------------------- */
   /*                                 Properties                                 */
