@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_serializable/json_serializable.dart';
+import 'dart:convert';
 
 class Recipe {
   /* -------------------------------------------------------------------------- */
@@ -15,6 +16,19 @@ class Recipe {
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
   Recipe(this.label, this.imgUrl, this.servings, this.ingredients, this.method);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 Converters                                 */
+  /* -------------------------------------------------------------------------- */
+  Map<String, dynamic> toJson() {
+    return {
+      'label': label,
+      'imgUrl': imgUrl,
+      'servings': servings,
+      'ingredients': ingredients.map((e) => e.toJson()).toList(),
+      'method': method.map((e) => e.toJson()).toList(),
+    };
+  }
 
   /* -------------------------------------------------------------------------- */
   /*                                   Methods                                  */
@@ -124,6 +138,17 @@ class Ingredient {
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
   Ingredient(this.quantity, this.measure, this.name);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 Converters                                 */
+  /* -------------------------------------------------------------------------- */
+  Map<String, dynamic> toJson() {
+    return {
+      'quantity': quantity,
+      'measure': measure,
+      'name': name,
+    };
+  }
 }
 
 @JsonSerializable(includeIfNull: false)
@@ -138,4 +163,14 @@ class Step {
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
   Step(this.stepNumber, this.step);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 Converters                                 */
+  /* -------------------------------------------------------------------------- */
+  Map<String, dynamic> toJson() {
+    return {
+      'stepNumber': stepNumber,
+      'step': step,
+    };
+  }
 }
