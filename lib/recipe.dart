@@ -15,7 +15,13 @@ class Recipe {
   /* -------------------------------------------------------------------------- */
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
-  Recipe(this.label, this.imgUrl, this.servings, this.ingredients, this.method);
+  Recipe({
+    required this.label,
+    required this.imgUrl,
+    required this.servings,
+    required this.ingredients,
+    required this.method,
+  });
 
   /* -------------------------------------------------------------------------- */
   /*                                 Converters                                 */
@@ -35,91 +41,125 @@ class Recipe {
   /* -------------------------------------------------------------------------- */
   static List<Recipe> samples = [
     Recipe(
-      'French Toast',
-      'assets/images/french-toast.jpg',
-      4,
-      [
-        Ingredient(2, '', 'Eggs'),
-        Ingredient(1.5, 'cups', 'Milk'),
-        Ingredient(0.5, 'Tbsps', 'Vanilla extract'),
-        Ingredient(4, 'slices', 'Bread'),
-        Ingredient(0.75, 'Tbsps', 'Maple syrup'),
-        Ingredient(1, 'cup', 'Mixed berries'),
-        Ingredient(1, 'tbsp', 'Butter')
+      label: 'French Toast',
+      imgUrl: 'assets/images/french-toast.jpg',
+      servings: 4,
+      ingredients: [
+        Ingredient(quantity: 2, measure: '', name: 'Eggs'),
+        Ingredient(quantity: 1.5, measure: 'cups', name: 'Milk'),
+        Ingredient(quantity: 0.5, measure: 'Tbsps', name: 'Vanilla extract'),
+        Ingredient(quantity: 4, measure: 'slices', name: 'Bread'),
+        Ingredient(quantity: 0.75, measure: 'Tbsps', name: 'Maple syrup'),
+        Ingredient(quantity: 1, measure: 'cup', name: 'Mixed berries'),
+        Ingredient(quantity: 1, measure: 'tbsp', name: 'Butter')
       ],
-      [
-        Step(1, 'Crack the eggs into a bowl and whisk until well mixed.'),
-        Step(2,
-            'Mix the milk and vanilla into the egg mixture and pour into a baking tray.'),
-        Step(3, 'Dip the slices of bread into the mixture and coat evenly.'),
-        Step(4, 'Heat a frying pan to medium and coat it with butter.'),
-        Step(5,
-            'Place the coated bread in the pan and cook on both sides until golden brown.'),
-        Step(6, 'Remove from the pan and place on a plate to cool.'),
-        Step(7, 'Serve with a drizzle of maple syrup and mixed berries.'),
-      ],
-    ),
-    Recipe(
-      'Hotcakes',
-      'assets/images/hotcakes.jpg',
-      2,
-      [
-        Ingredient(2, 'cups', 'All purpose flour'),
-        Ingredient(4, 'tbsp', 'White Sugar'),
-        Ingredient(2, 'tsp', 'Baking powder'),
-        Ingredient(0.5, 'tsp', 'Baking soda'),
-        Ingredient(0.5, 'tsp', 'Salt'),
-        Ingredient(2, '', 'Eggs'),
-        Ingredient(4, 'tbsp', 'Unsalted butter (melted)'),
-        Ingredient(1, 'cup', 'Milk'),
-        Ingredient(0.25, 'cup', 'Buttermilk'),
-        Ingredient(1, 'tsp', 'Vanilla extract'),
-        Ingredient(1, 'cup', 'Toppings of choice'),
-      ],
-      [
-        Step(1, 'Mix the dry ingredients together in a bowl.'),
-        Step(2, 'Add the wet ingredients and mix until just combined.'),
-        Step(3, 'Heat a pan to medium and coat it with butter.'),
-        Step(4, 'Pour the batter into the pan and cook until golden brown.'),
-        Step(5, 'Serve with your favorite toppings.'),
+      method: [
+        Step(
+            stepNumber: 1,
+            step: 'Crack the eggs into a bowl and whisk until well mixed.'),
+        Step(
+            stepNumber: 2,
+            step:
+                'Mix the milk and vanilla into the egg mixture and pour into a baking tray.'),
+        Step(
+            stepNumber: 3,
+            step: 'Dip the slices of bread into the mixture and coat evenly.'),
+        Step(
+            stepNumber: 4,
+            step: 'Heat a frying pan to medium and coat it with butter.'),
+        Step(
+            stepNumber: 5,
+            step:
+                'Place the coated bread in the pan and cook on both sides until golden brown.'),
+        Step(
+            stepNumber: 6,
+            step: 'Remove from the pan and place on a plate to cool.'),
+        Step(
+            stepNumber: 7,
+            step: 'Serve with a drizzle of maple syrup and mixed berries.'),
       ],
     ),
     Recipe(
-      'Scrambled Eggs',
-      'assets/images/scrambled-eggs.jpg',
-      2,
-      [
-        Ingredient(2, '', 'Eggs'),
-        Ingredient(0.5, 'tsp', 'Salt'),
-        Ingredient(0.5, 'tsp', 'Pepper'),
-        Ingredient(1, 'tbsp', 'Butter'),
-        Ingredient(0.5, 'cup', 'Milk'),
+      label: 'Hotcakes',
+      imgUrl: 'assets/images/hotcakes.jpg',
+      servings: 2,
+      ingredients: [
+        Ingredient(quantity: 2, measure: 'cups', name: 'All purpose flour'),
+        Ingredient(quantity: 4, measure: 'tbsp', name: 'White Sugar'),
+        Ingredient(quantity: 2, measure: 'tsp', name: 'Baking powder'),
+        Ingredient(quantity: 0.5, measure: 'tsp', name: 'Baking soda'),
+        Ingredient(quantity: 0.5, measure: 'tsp', name: 'Salt'),
+        Ingredient(quantity: 2, measure: '', name: 'Eggs'),
+        Ingredient(
+            quantity: 4, measure: 'tbsp', name: 'Unsalted butter (melted)'),
+        Ingredient(quantity: 1, measure: 'cup', name: 'Milk'),
+        Ingredient(quantity: 0.25, measure: 'cup', name: 'Buttermilk'),
+        Ingredient(quantity: 1, measure: 'tsp', name: 'Vanilla extract'),
+        Ingredient(quantity: 1, measure: 'cup', name: 'Toppings of choice'),
       ],
-      [
-        Step(1, 'Crack the eggs into a bowl and whisk until well mixed.'),
-        Step(2, 'Add the salt and pepper and milk and whisk again.'),
-        Step(3, 'Heat a pan to medium and coat it with butter.'),
-        Step(4, 'Pour the mixture into the pan and cook until scrambled.'),
-        Step(5, 'Place on a plate and serve.'),
+      method: [
+        Step(
+            stepNumber: 1, step: 'Mix the dry ingredients together in a bowl.'),
+        Step(
+            stepNumber: 2,
+            step: 'Add the wet ingredients and mix until just combined.'),
+        Step(
+            stepNumber: 3,
+            step: 'Heat a pan to medium and coat it with butter.'),
+        Step(
+            stepNumber: 4,
+            step: 'Pour the batter into the pan and cook until golden brown.'),
+        Step(stepNumber: 5, step: 'Serve with your favorite toppings.'),
       ],
     ),
     Recipe(
-      'Grilled Salmon on Vegetables',
-      'assets/images/salmon.jpg',
-      1,
-      [
-        Ingredient(1, 'fillet', 'Salmon'),
-        Ingredient(1, 'cup', 'Vegetables'),
-        Ingredient(1, 'tbsp', 'Olive oil'),
-        Ingredient(1, 'tsp', 'Salt'),
-        Ingredient(1, 'tsp', 'Pepper'),
+      label: 'Scrambled Eggs',
+      imgUrl: 'assets/images/scrambled-eggs.jpg',
+      servings: 2,
+      ingredients: [
+        Ingredient(quantity: 2, measure: '', name: 'Eggs'),
+        Ingredient(quantity: 0.5, measure: 'tsp', name: 'Salt'),
+        Ingredient(quantity: 0.5, measure: 'tsp', name: 'Pepper'),
+        Ingredient(quantity: 1, measure: 'tbsp', name: 'Butter'),
+        Ingredient(quantity: 0.5, measure: 'cup', name: 'Milk'),
       ],
-      [
-        Step(1, 'Season the salmon with salt and pepper.'),
-        Step(2, 'Heat the olive oil in a pan over medium heat.'),
-        Step(3,
-            'Add the salmon and vegetables and cook until the salmon is cooked through.'),
-        Step(4, 'Serve with your favorite sides.'),
+      method: [
+        Step(
+            stepNumber: 1,
+            step: 'Crack the eggs into a bowl and whisk until well mixed.'),
+        Step(
+            stepNumber: 2,
+            step: 'Add the salt and pepper and milk and whisk again.'),
+        Step(
+            stepNumber: 3,
+            step: 'Heat a pan to medium and coat it with butter.'),
+        Step(
+            stepNumber: 4,
+            step: 'Pour the mixture into the pan and cook until scrambled.'),
+        Step(stepNumber: 5, step: 'Place on a plate and serve.'),
+      ],
+    ),
+    Recipe(
+      label: 'Grilled Salmon on Vegetables',
+      imgUrl: 'assets/images/salmon.jpg',
+      servings: 1,
+      ingredients: [
+        Ingredient(quantity: 1, measure: 'fillet', name: 'Salmon'),
+        Ingredient(quantity: 1, measure: 'cup', name: 'Vegetables'),
+        Ingredient(quantity: 1, measure: 'tbsp', name: 'Olive oil'),
+        Ingredient(quantity: 1, measure: 'tsp', name: 'Salt'),
+        Ingredient(quantity: 1, measure: 'tsp', name: 'Pepper'),
+      ],
+      method: [
+        Step(stepNumber: 1, step: 'Season the salmon with salt and pepper.'),
+        Step(
+            stepNumber: 2,
+            step: 'Heat the olive oil in a pan over medium heat.'),
+        Step(
+            stepNumber: 3,
+            step:
+                'Add the salmon and vegetables and cook until the salmon is cooked through.'),
+        Step(stepNumber: 4, step: 'Serve with your favorite sides.'),
       ],
     ),
   ];
@@ -137,7 +177,11 @@ class Ingredient {
   /* -------------------------------------------------------------------------- */
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
-  Ingredient(this.quantity, this.measure, this.name);
+  Ingredient({
+    required this.quantity,
+    required this.measure,
+    required this.name,
+  });
 
   /* -------------------------------------------------------------------------- */
   /*                                 Converters                                 */
@@ -162,7 +206,10 @@ class Step {
   /* -------------------------------------------------------------------------- */
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
-  Step(this.stepNumber, this.step);
+  Step({
+    required this.stepNumber,
+    required this.step,
+  });
 
   /* -------------------------------------------------------------------------- */
   /*                                 Converters                                 */

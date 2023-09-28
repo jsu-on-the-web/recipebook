@@ -3,14 +3,14 @@ import 'recipe.dart';
 
 class RecipeDetail extends StatefulWidget {
   /* -------------------------------------------------------------------------- */
-  /*                                 Properties                                 */
-  /* -------------------------------------------------------------------------- */
-  final Recipe recipe;
-
-  /* -------------------------------------------------------------------------- */
   /*                                Constructors                                */
   /* -------------------------------------------------------------------------- */
   const RecipeDetail({Key? key, required this.recipe}) : super(key: key);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 Properties                                 */
+  /* -------------------------------------------------------------------------- */
+  final Recipe recipe;
 
   /* -------------------------------------------------------------------------- */
   /*                                   Methods                                  */
@@ -26,6 +26,7 @@ class RecipeDetail extends StatefulWidget {
 
 class _RecipeDetailState extends State<RecipeDetail> {
   int _sliderVal = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,6 +103,13 @@ class _RecipeDetailState extends State<RecipeDetail> {
                     textAlign: TextAlign.center,
                   );
                 },
+              ),
+            ),
+
+            Expanded(
+              child: Text(
+                '${_sliderVal * widget.recipe.servings} servings',
+                style: TextStyle(fontSize: 20),
               ),
             ),
 
