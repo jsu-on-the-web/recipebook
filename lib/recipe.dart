@@ -1,10 +1,10 @@
-
 class Recipe {
   /* -------------------------------------------------------------------------- */
   /*                                 Properties                                 */
   /* -------------------------------------------------------------------------- */
   String label;
   String imgUrl;
+  List<String> tags;
   int servings;
   List<Ingredient> ingredients;
   List<Step> method;
@@ -15,6 +15,7 @@ class Recipe {
   Recipe({
     required this.label,
     required this.imgUrl,
+    required this.tags,
     required this.servings,
     required this.ingredients,
     required this.method,
@@ -33,6 +34,20 @@ class Recipe {
     };
   }
 
+  Recipe.fromJson(Map<String, dynamic> input)
+      : this(
+          label: (input['label']! as String),
+          imgUrl: (input['imgUrl']! as String),
+          tags: (input['tags']! as List<String>),
+          servings: (input['servings']! as int),
+          ingredients: (input['ingredients']! as List<dynamic>)
+              .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
+              .toList(),
+          method: (input['method']! as List<dynamic>)
+              .map((e) => Step.fromJson(e as Map<String, dynamic>))
+              .toList(),
+        );
+
   /* -------------------------------------------------------------------------- */
   /*                                   Methods                                  */
   /* -------------------------------------------------------------------------- */
@@ -40,6 +55,7 @@ class Recipe {
     Recipe(
       label: 'French Toast',
       imgUrl: 'assets/images/french-toast.jpg',
+      tags: ['Breakfast'],
       servings: 4,
       ingredients: [
         Ingredient(quantity: 2, measure: '', name: 'Eggs'),
@@ -79,6 +95,7 @@ class Recipe {
     Recipe(
       label: 'Hotcakes',
       imgUrl: 'assets/images/hotcakes.jpg',
+      tags: ['Breakfast', 'Desserts'],
       servings: 2,
       ingredients: [
         Ingredient(quantity: 2, measure: 'cups', name: 'All purpose flour'),
@@ -112,6 +129,7 @@ class Recipe {
     Recipe(
       label: 'Scrambled Eggs',
       imgUrl: 'assets/images/scrambled-eggs.jpg',
+      tags: ['Breakfast', 'Entree', 'Eggs'],
       servings: 2,
       ingredients: [
         Ingredient(quantity: 2, measure: '', name: 'Eggs'),
@@ -139,6 +157,7 @@ class Recipe {
     Recipe(
       label: 'Grilled Salmon on Vegetables',
       imgUrl: 'assets/images/salmon.jpg',
+      tags: ['Main Course', 'Lunch', 'Fish', 'Seafood'],
       servings: 1,
       ingredients: [
         Ingredient(quantity: 1, measure: 'fillet', name: 'Salmon'),
@@ -189,6 +208,13 @@ class Ingredient {
       'name': name,
     };
   }
+
+  Ingredient.fromJson(Map<String, dynamic> input)
+      : this(
+          quantity: input['quantity']! as double,
+          measure: input['measure']! as String,
+          name: input['name']! as String,
+        );
 }
 
 class Step {
@@ -215,4 +241,10 @@ class Step {
       'step': step,
     };
   }
+
+  Step.fromJson(Map<String, dynamic> input)
+      : this(
+          stepNumber: (input['stepNumber']! as int),
+          step: (input['step']! as String),
+        );
 }

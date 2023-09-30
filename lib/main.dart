@@ -1,10 +1,26 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:recipebook/recipe_detail_page.dart';
+import 'package:recipebook/services/database_service.dart';
 import 'recipe.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   Queries                                  */
+/* -------------------------------------------------------------------------- */
+
+extension on Query<Recipe> {
+  Query<Recipe> orderByLabel() {
+    return orderBy('label');
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                     App                                    */
+/* -------------------------------------------------------------------------- */
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
