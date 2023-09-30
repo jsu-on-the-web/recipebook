@@ -80,6 +80,16 @@ class _RecipeDetailState extends State<RecipeDetail> {
               ),
             ),
 
+            Expanded(
+              child: Text(
+                '${_sliderVal * widget.recipe.servings} servings',
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
             const Divider(
               height: 4,
               color: Colors.black,
@@ -90,7 +100,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
             // Display Steps
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.all(9.0),
+                padding: const EdgeInsets.fromLTRB(0, 35, 0, 35),
                 itemCount: widget.recipe.method.length,
                 itemBuilder: (BuildContext context, int index) {
                   final step = widget.recipe.method[index];
@@ -103,13 +113,6 @@ class _RecipeDetailState extends State<RecipeDetail> {
                     textAlign: TextAlign.center,
                   );
                 },
-              ),
-            ),
-
-            Expanded(
-              child: Text(
-                '${_sliderVal * widget.recipe.servings} servings',
-                style: TextStyle(fontSize: 20),
               ),
             ),
 
